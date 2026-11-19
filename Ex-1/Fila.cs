@@ -1,10 +1,10 @@
-﻿public class FilaPrioritaria
+﻿public class Fila
 {
     public Senha Head;
     public Senha Tail;
     public int Contador;
 
-    public FilaPrioritaria()
+    public Fila()
     {
         Head = Tail = null;
         Contador = 0;
@@ -50,5 +50,4 @@
     {
         return Head.NumeroSenha;
     }
-
 }

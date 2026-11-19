@@ -1,32 +1,33 @@
-﻿Random random = new Random();
-FilaNormal filaNormal = new FilaNormal();
-FilaPrioritaria filaPrioritaria= new FilaPrioritaria();
+﻿Fila filaNormal = new Fila();
+Fila filaPrioritaria = new Fila();
+int operacao = 0;
+int numeroSenha = 0;
 
 string GerarNumeroSenha()
 {
-    int numero;
+    numeroSenha += 1;
 
-    numero = random.Next(10, 100);
-
-    return numero.ToString();
+    return numeroSenha.ToString();
 }
+int Menu()
+{
+    Console.Clear();
+   
+    Console.WriteLine("Informe o que deseja executar:" +
+        "\n1-Gerar senha Normal" +
+        "\n2-Gerar senha Prioritária" +
+        "\n3-Chamar proxima senha");
 
+    return operacao = int.Parse(Console.ReadLine());
+}
 void Operacoes()
 {
     int contadorPrioritario = 0;
 
     while (true)
     {
-        Console.Clear();
-        int operacao = 0;
         Senha senha = new Senha(GerarNumeroSenha());
-
-        Console.WriteLine("Informe o que deseja executar:" +
-            "\n1-Gerar senha Normal" +
-            "\n2-Gerar senha Prioritária" +
-            "\n3-Chamar proxima senha");
-        operacao = int.Parse(Console.ReadLine());
-        switch (operacao)
+        switch (Menu())
         {
             case 1:
                 filaNormal.InserirElemento(senha);
